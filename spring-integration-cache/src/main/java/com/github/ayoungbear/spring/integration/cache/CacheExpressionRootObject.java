@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
  * Class describing the root object used during the expression evaluation.
  *
  * @author yangzexiong
- * @see class org.springframework.cache.interceptor.CacheExpressionRootObject
+ * @see org.springframework.cache.interceptor.CacheExpressionRootObject
  */
 public class CacheExpressionRootObject {
 
