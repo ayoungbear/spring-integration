@@ -25,7 +25,7 @@ import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 
 /**
- * 缓存配置相关 SpEl 表达式解析。
+ * 缓存配置相关 SpEL 表达式解析。
  *
  * @author yangzexiong
  */
