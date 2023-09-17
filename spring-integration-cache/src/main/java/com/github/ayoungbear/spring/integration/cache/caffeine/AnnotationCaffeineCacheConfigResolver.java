@@ -1,6 +1,23 @@
+/**
+ *    Copyright [2023] [yangzexiong]
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
 package com.github.ayoungbear.spring.integration.cache.caffeine;
 
 import com.github.ayoungbear.spring.integration.cache.CacheExpressionRootObject;
+import com.github.ayoungbear.spring.integration.cache.CacheConfigExpressionEvaluator;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -17,12 +34,11 @@ import org.springframework.util.StringUtils;
  * 注解式 CaffeineCache 缓存配置信息解析，根据注解配置覆盖默认配置。
  *
  * @author yangzexiong
- * @date 2023/6/5
  * @see CaffeineCacheConfig
  */
 public class AnnotationCaffeineCacheConfigResolver extends DefaultCaffeineCacheConfigResolver {
 
-    private final CaffeineCacheConfigExpressionEvaluator evaluator = new CaffeineCacheConfigExpressionEvaluator();
+    private final CacheConfigExpressionEvaluator evaluator = new CacheConfigExpressionEvaluator();
 
     @Override
     public CaffeineCacheOperationConfig resolveConfig(String name, CacheOperationInvocationContext<?> context) {
