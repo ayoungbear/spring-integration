@@ -159,3 +159,11 @@ public class MyConfigRepositoryImpl implements MyConfigRepository {
 
 Spring cache 的基本原理还是 AOP，通过动态代理增强缓存相关的操作。
 
+## License
+
+- [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+## 其他
+
+- 作者 wechat：yzx4007
+- github ：https://github.com/ayoungbear/spring-integration
