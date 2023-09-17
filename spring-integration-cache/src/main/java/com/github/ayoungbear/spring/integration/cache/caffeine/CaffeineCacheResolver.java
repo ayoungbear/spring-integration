@@ -131,7 +131,7 @@ public class CaffeineCacheResolver implements CacheResolver {
             caffeine.executor(config.getExecutor());
         }
         if (config.getSoftRef()) {
-            // 软引用暂时先不启用
+            // temporarily needless
             // caffeine.softValues();
         }
         return caffeine.build(CacheValueInvokerLoader.newInstance());
