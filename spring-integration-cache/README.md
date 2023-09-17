@@ -35,7 +35,7 @@ Spring caffeine cache
 （abstraction）& [Caffeine Cache](https://github.com/ben-manes/caffeine/wiki)
 （implementation）的集成增强，为了简化开发和提升效率：
 
-**一个注解实现 本地缓存 + 容量控制 + 缓存过期 + 异步刷新**。
+**一个注解实现 `本地缓存 + 容量控制 + 缓存过期 + 异步刷新` 的功能**。
 
 比如一个查询配置的方法想添加本地缓存，假设设置缓存大小为100、写入后过期时间为10分钟、缓存每5分钟后有请求异步刷新一次数据，只需要添加一个注解 [@CaffeineCacheable](https://github.com/ayoungbear/spring-integration/blob/main/spring-integration-cache/src/main/java/com/github/ayoungbear/spring/integration/cache/caffeine/CaffeineCacheable.java)。
 
