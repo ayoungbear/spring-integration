@@ -120,33 +120,33 @@ public class MyConfigRepositoryImpl implements MyConfigRepository {
 
 相关属性说明：
 
-- value：缓存名称，相当于 cache 的 key，支持不配置该属性。默认为缓存方法
+- `value`：缓存名称，相当于 cache 的 key，支持不配置该属性。默认为缓存方法
   Method.toGenericString。
-- cacheNames：缓存名称，相当于 cache 的 key，value 的别名属性。
-- keyGenerator：缓存 key 生成接口实现对应的 bean name，根据方法和参数等生成缓存 key（与 key 互斥）。默认使用
+- `cacheNames`：缓存名称，相当于 cache 的 key，value 的别名属性。
+- `keyGenerator`：缓存 key 生成接口实现对应的 name，根据方法和参数等生成缓存 key（与 key 互斥）。默认使用
   SimpleKeyGenerator。
-- condition：缓存条件，可通过 SpEL 表达式指定需要缓存的情况，返回 true 表示需要缓存。默认为 true。
-- unless：缓存反条件，可通过 SpEL 表达式指定不需要缓存的情况，返回 true 表示不需要缓存。默认为 false。
-- sync：缓存加载是否同步执行。默认为 false。
-- maximumSize：缓存容量，超过容量后会根据淘汰策略剔除不常用的 kv，可通过 SpEL 表达式指定，返回 int
+- `condition`：缓存条件，可通过 SpEL 表达式指定需要缓存的情况，返回 true 表示需要缓存。默认为 true。
+- `unless`：缓存反条件，可通过 SpEL 表达式指定不需要缓存的情况，返回 true 表示不需要缓存。默认为 false。
+- `sync`：缓存加载是否同步执行。默认为 false。
+- `maximumSize`：缓存容量，超过容量后会根据淘汰策略剔除不常用的 kv，可通过 SpEL 表达式指定，返回 int
   类型。默认不限制（Integer.MAX_VALUE），或者取默认配置 **`spring.cache.caffeine.maximumSize`**。
   _如果不同方法使用了相同的 cache（同
   cacheName），但设置了不同的容量大小，那取较大值（比如method1设置size=100，method2设置size=200，最终size=200）。_
-- expireAfterAccess；缓存读取操作后数据的过期时间（ms），可通过 SpEL 表达式指定，返回 int
+- `expireAfterAccess`；缓存读取操作后数据的过期时间（ms），可通过 SpEL 表达式指定，返回 int
   类型。默认不过期，或者取默认配置 **`spring.cache.caffeine.expireAfterAccess`** 。
-- expireAfterWrite：缓存写入后数据的过期时间（ms），可通过 SpEL 表达式指定，返回 int
+- `expireAfterWrite`：缓存写入后数据的过期时间（ms），可通过 SpEL 表达式指定，返回 int
   类型。默认不过期，或者取默认配置 **`spring.cache.caffeine.expireAfterWrite`**。
-- refreshAfterWrite：缓存数据异步刷新的时间（ms），可通过 SpEL 表达式指定，返回 int
+- `refreshAfterWrite`：缓存数据异步刷新的时间（ms），可通过 SpEL 表达式指定，返回 int
   类型。默认不刷新，或者取默认配置 **`spring.cache.caffeine.refreshAfterWrite`**。_如果不同方法使用了相同的
   cache（同
   cacheName），但设置了不同的过期时间，那取较小值（比如method1设置为100s，method2设置为200s，最终刷新时间间隔是100s）。缓存过期支持不同
   key 配置不同过期时间，但缓存刷新 refreshAfterWrite 不支持根据 key 动态变化，如果设置有冲突则取较小值；原因是
   caffeine 目前还没支持动态刷新（后续可能会支持），官方也有相关 issue
   有兴趣可以了解：https://github.com/ben-manes/caffeine/issues/504。_
-- executor：缓存异步处理（刷新）时使用的异步执行器线程池 name。默认为 ForkJoinPool.commonPool()
+- `executor`：缓存异步处理（刷新）时使用的异步执行器线程池 name。默认为 ForkJoinPool.commonPool()
   ，或者取默认配置 **`spring.cache.caffeine.executor`**。_executor 不支持覆盖，如果不同方法使用了相同的
   cache（同 cacheName），但设置了不同的 executor，以最先初始化 cache 的为准。_
-- softRef：是否开启软引用（可以使 GC 在内存不足时，回收这些缓存对象释放内存）。默认为 false。
+- `softRef`：是否开启软引用（可以使 GC 在内存不足时，回收这些缓存对象释放内存）。默认为 false。
   _一般应用场景不需要考虑该参数，如果方法参数是个大对象才考虑是否开启（因为异步刷新需要缓存请求参数），但这种一般都可以通过优化写法解决。_
 
 ## 原理
