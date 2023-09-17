@@ -149,7 +149,7 @@ public class MyConfigRepositoryImpl implements MyConfigRepository {
 - softRef：是否开启软引用（可以使 GC 在内存不足时，回收这些缓存对象释放内存）。默认为 false。
   _一般应用场景不需要考虑该参数，如果方法参数是个大对象才考虑是否开启（因为异步刷新需要缓存请求参数），但这种一般都可以通过优化写法解决。_
 
-# 原理
+## 原理
 
 组件是在 [Spring Annotation-based Caching](https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/integration.html#cache)
 的基础上做的扩展增强，通过定制 CacheResolver 实现具体缓存的相关特性。
