@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.ayoungbear;
+package com.github.ayoungbear.spring.integration;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.After;

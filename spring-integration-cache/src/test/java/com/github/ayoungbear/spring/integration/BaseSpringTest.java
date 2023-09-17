@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.ayoungbear;
+package com.github.ayoungbear.spring.integration;
 
 import com.github.ayoungbear.test.Application;
 import org.junit.runner.RunWith;
